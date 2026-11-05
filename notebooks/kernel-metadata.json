@@ -1,0 +1,14 @@
+{
+  "id": "harshjilendra/deepfake-face-detection-cnn",
+  "title": "Deepfake Face Detection CNN",
+  "code_file": "kaggle_train.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": ["xhlulu/140k-real-and-fake-faces"],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

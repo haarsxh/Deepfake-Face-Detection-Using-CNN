@@ -1,0 +1,11 @@
+torch
+torchvision
+kaggle
+numpy
+scikit-learn
+matplotlib
+tqdm
+pillow
+six
+gradio
+opencv-python-headless<5

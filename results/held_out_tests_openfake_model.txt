@@ -1,0 +1,40 @@
+#### OpenFake TEST split (never trained on), whole image [finetuned]
+real (real) 600 17.0% 83.0% 0.0%
+fake (fake) 600 28.2% 71.8% 0.0%
+real photos correct: 83.0% fakes caught: 28.2%
+balanced accuracy: 55.6% ROC AUC: 0.576
+#### OpenFake TEST split (never trained on), whole image [finetuned_full]
+real (real) 600 17.3% 82.7% 0.0%
+fake (fake) 600 91.3% 8.7% 0.0%
+real photos correct: 82.7% fakes caught: 91.3%
+balanced accuracy: 87.0% ROC AUC: 0.953
+#### OpenFake TEST split, SIZE-MATCHED (all shrunk to 512px + JPEG) [finetuned_full]
+real (real) 600 13.7% 86.3% 0.0%
+fake (fake) 600 89.0% 11.0% 0.0%
+real photos correct: 86.3% fakes caught: 89.0%
+balanced accuracy: 87.7% ROC AUC: 0.950
+#### HybridForensics (never trained on): real COCO scenes vs SDXL + Midjourney fakes [finetuned]
+MS_COCO (real) 300 1.7% 98.3% 0.0%
+SDXL (fake) 300 0.0% 100.0% 0.0%
+Midjourney (fake) 300 0.0% 100.0% 0.0%
+real photos correct: 98.3% fakes caught: 0.0%
+balanced accuracy: 49.2% ROC AUC: 0.245
+#### HybridForensics (never trained on): real COCO scenes vs SDXL + Midjourney fakes [finetuned_full]
+MS_COCO (real) 300 44.0% 56.0% 0.0%
+SDXL (fake) 300 55.7% 44.3% 0.0%
+Midjourney (fake) 300 68.3% 31.7% 0.0%
+real photos correct: 56.0% fakes caught: 62.0%
+balanced accuracy: 59.0% ROC AUC: 0.613
+#### Face datasets: new diffusion-faces TEST split [finetuned_full]
+real (real) 163 4.9% 95.1% 0.0%
+gan (fake) 300 98.3% 1.7% 0.0%
+diffusion (fake) 300 99.0% 1.0% 0.0%
+photoshop (fake) 144 4.2% 95.8% 0.0%
+real photos correct: 95.1% fakes caught: 80.4%
+balanced accuracy: 87.7% ROC AUC: 0.897
+#### Original 140k TEST subset [finetuned_full]
+real (real) 600 6.3% 93.7% 0.0%
+fake (fake) 600 98.5% 1.5% 0.0%
+real photos correct: 93.7% fakes caught: 98.5%
+balanced accuracy: 96.1% ROC AUC: 0.997
+ALL DONE

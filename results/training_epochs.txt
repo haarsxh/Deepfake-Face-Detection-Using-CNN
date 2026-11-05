@@ -1,0 +1,14 @@
+# OpenFake whole-image fine-tune (src/finetune_full.py)
+train 21,236 images, validation 2,437 images
+Before training: balanced acc 0.767  real_openfake 0.79  fake_openfake 0.33  real_new 0.93  diffusion 1.00  gan_new 1.00  real_orig 0.94  fake_orig 1.00
+Epoch 1: loss 0.4821  balanced acc 0.879  real_openfake 0.74  fake_openfake 0.91  real_new 0.88  diffusion 0.99  gan_new 0.98  real_orig 0.93  fake_orig 0.98
+Epoch 2: loss 0.3384  balanced acc 0.903  real_openfake 0.79  fake_openfake 0.92  real_new 0.92  diffusion 1.00  gan_new 0.98  real_orig 0.95  fake_orig 0.98
+Epoch 3: loss 0.2948  balanced acc 0.915  real_openfake 0.80  fake_openfake 0.94  real_new 0.96  diffusion 1.00  gan_new 0.97  real_orig 0.97  fake_orig 0.96
+Epoch 4: loss 0.2575  balanced acc 0.922  real_openfake 0.83  fake_openfake 0.93  real_new 0.93  diffusion 1.00  gan_new 0.99  real_orig 0.95  fake_orig 0.99
+
+# Final run with extra face datasets (src/finetune_full.py --extra)
+train 29,236 images, validation 2,737 images
+Before training: balanced acc 0.885  real_openfake 0.83  fake_openfake 0.93  real_new 0.93  diffusion 1.00  gan_new 0.99  real_orig 0.95  fake_orig 0.99  real_ffhq 0.85  fake_gan3 0.51  fake_progan 0.04
+Epoch 1: loss 0.2986  balanced acc 0.925  real_openfake 0.85  fake_openfake 0.92  real_new 0.94  diffusion 0.99  gan_new 0.98  real_orig 0.90  fake_orig 0.99  real_ffhq 0.99  fake_gan3 0.97  fake_progan 0.99
+Epoch 2: loss 0.2549  balanced acc 0.919  real_openfake 0.83  fake_openfake 0.93  real_new 0.93  diffusion 0.99  gan_new 0.98  real_orig 0.87  fake_orig 0.99  real_ffhq 0.99  fake_gan3 0.97  fake_progan 1.00
+Epoch 3: loss 0.2329  balanced acc 0.928  real_openfake 0.86  fake_openfake 0.92  real_new 0.95  diffusion 0.99  gan_new 0.99  real_orig 0.91  fake_orig 0.99  real_ffhq 0.99  fake_gan3 0.97  fake_progan 1.00

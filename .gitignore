@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.DS_Store
+# datasets, downloads, run outputs
+data/
+data_extra/
+kaggle_output/
+outputs/
+logs/
+*.png
+# model checkpoints: keep only the final model
+checkpoints/*
+!checkpoints/finetuned_final.pt
