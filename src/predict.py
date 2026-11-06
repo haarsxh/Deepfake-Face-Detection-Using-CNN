@@ -81,3 +81,31 @@ class Detector:
             "seen": face.resize((IMAGE_SIZE, IMAGE_SIZE)),
             "face_found": found,
         }
+
+    @torch.no_grad()
+    def p_fake(self, image):
+        """Probability that an already-prepared image is fake."""
+        batch = self.transform(image.convert("RGB")).unsqueeze(0).to(self.device)
+        return 1 - torch.sigmoid(self.model(batch)).item()  # class order is fake=0, real=1
+
+    def predict_two_views(self, image, crop_detector=None):
+        """Score the whole image and, if a face is found, the face crop too, then average the two.
+
+        The whole image gives context and the face crop gives detail. With no face, only the whole image counts.
+        crop_detector: optionally another Detector (model) to score the face crop.
+        """
+        image = image.convert("RGB")
+        p_whole = self.p_fake(image)
+        face, found = self.crop_face(image)
+        p_crop = (crop_detector or self).p_fake(face) if found else None
+        p_fake = p_whole if p_crop is None else (p_whole + p_crop) / 2
+        return {
+            "p_fake": p_fake,
+            "p_real": 1 - p_fake,
+            "label": "fake" if p_fake > 0.5 else "real",
+            "p_whole": p_whole,
+            "p_crop": p_crop,
+            "face_found": found,
+            "whole_seen": image.resize((IMAGE_SIZE, IMAGE_SIZE)),
+            "face_seen": face.resize((IMAGE_SIZE, IMAGE_SIZE)) if found else None,
+        }

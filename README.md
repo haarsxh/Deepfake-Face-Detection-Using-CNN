@@ -33,6 +33,20 @@ Raw outputs are in `results/`.
   photos, so they were used only for testing, never for training.
 - Not covered: face-swap videos, Photoshop edits, newer generators than the data contains.
 
+### Two-view check (tested, not enabled in the app)
+
+`Detector.predict_two_views` scores the whole image and the face crop and averages them; `src/eval_two_view.py`
+compares it with the single views on the same images (`results/two_view_tests.txt`). It did not clearly help:
+
+| Test (balanced accuracy) | Whole image | Face crop only | Average of both |
+|---|---|---|---|
+| New diffusion faces / original 140k faces | 95.6% / 95.5% | same | same (face-only images are already "cropped") |
+| OpenFake test (a face found in 75%) | **88.2%** | 75.7% | 86.1% |
+| SDXL + Midjourney vs COCO (a face found in 9%) | 78.4% | 81.9% | 81.6% |
+
+Cropping lowers false alarms on real photos but also misses many fakes, because this model uses image context as well
+as face detail. A two-view model would need to be trained on crops of the OpenFake people images too.
+
 ## Setup
 
 ```bash

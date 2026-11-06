@@ -1,0 +1,37 @@
+######## 1. New diffusion-faces TEST split (real vs GAN + diffusion fakes)
+763 images, a face was found in 726 (95%)
+rule real ok fakes caught balanced AUC
+whole image only 93.9% 97.3% 95.6% 0.995
+face crop only (whole if no face) 93.9% 97.3% 95.6% 0.995
+two views: average 93.9% 97.3% 95.6% 0.995
+two views: max (either says fake) 93.9% 97.3% 95.6% 0.995
+two views: whole + crop-trained model's crop 96.3% 98.8% 97.6% 0.998
+
+######## 2. Original 140k face TEST subset (600 per class)
+1200 images, a face was found in 1200 (100%)
+rule real ok fakes caught balanced AUC
+whole image only 91.8% 99.2% 95.5% 0.996
+face crop only (whole if no face) 91.8% 99.2% 95.5% 0.996
+two views: average 91.8% 99.2% 95.5% 0.996
+two views: max (either says fake) 91.8% 99.2% 95.5% 0.996
+two views: whole + crop-trained model's crop 95.2% 99.3% 97.2% 0.998
+
+######## 3. OpenFake TEST split (600 per class)
+1200 images, a face was found in 900 (75%)
+rule real ok fakes caught balanced AUC
+whole image only 86.7% 89.8% 88.2% 0.958
+face crop only (whole if no face) 93.3% 58.0% 75.7% 0.834
+two views: average 93.8% 78.3% 86.1% 0.952
+two views: max (either says fake) 84.0% 92.0% 88.0% 0.960
+two views: whole + crop-trained model's crop 88.7% 74.3% 81.5% 0.919
+
+######## 4. HybridForensics, generators never trained on: real COCO vs SDXL + Midjourney (300 per folder)
+900 images, a face was found in 83 (9%)
+rule real ok fakes caught balanced AUC
+whole image only 58.3% 98.5% 78.4% 0.942
+face crop only (whole if no face) 65.3% 98.5% 81.9% 0.944
+two views: average 64.7% 98.5% 81.6% 0.943
+two views: max (either says fake) 58.3% 98.5% 78.4% 0.942
+two views: whole + crop-trained model's crop 65.7% 98.3% 82.0% 0.942
+
+ALL DONE
